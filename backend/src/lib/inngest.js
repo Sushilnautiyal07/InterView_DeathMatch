@@ -7,24 +7,36 @@ export const inngest = new Inngest({
 
 });
 
-const syncUser=inngest.createFunction({
-    id:"sync-user"},
-    {event:"clerk/user.created"},
-    async function({event, step}) {
-        await connectDB();
-        const {id,email_address,first_name,last_name,image_url} = event.data;
-        
-        const newUser={
-            clerkId:id,
-            email:email_address[0]?.email_address,
-            name:`${first_name || ""} ${last_name ||""}`,
-            profileImage:image_url,
-        }
+const syncUser = inngest.createFunction(
+  { id: "sync-user" },
+  { event: "clerk/user.created" },
+  async ({ event }) => {
+    await connectDB();
 
-        await User.create(newUser);
-        //hoga kuch to  baad me
+    const {
+      id,
+      email_addresses,
+      first_name,
+      last_name,
+      image_url,
+    } = event.data;
+
+    const email = email_addresses?.[0]?.email_address;
+
+    if (!email) {
+      throw new Error("Email not found in Clerk event payload");
     }
-)
+
+    const newUser = {
+      clerkId: id,
+      email,
+      name: `${first_name || ""} ${last_name || ""}`,
+      profileImage: image_url,
+    };
+
+    await User.create(newUser);
+  }
+);
 
 const deleteUserFromDb=inngest.createFunction({
     id:"delete-user-from-db"},
