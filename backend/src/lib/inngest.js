@@ -42,6 +42,8 @@ const syncUser = inngest.createFunction(
       name: newUser.name,
       image: newUser.profileImage,
     });
+
+    //challege is : send a welcome email to the user once completed
   }
 );
 
@@ -55,8 +57,6 @@ const deleteUserFromDb=inngest.createFunction({
 
         await deleteStreamUser(id.toString());
     }
-    
-   
 )
 
 export const functions=[syncUser,deleteUserFromDb];
