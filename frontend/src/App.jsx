@@ -2,7 +2,7 @@ import { useUser } from '@clerk/clerk-react';
 import { Navigate, Routes, Route } from 'react-router';
 
 import HomePage from './pages/HomePage';
-import Problemspage from './pages/Problemspage';
+import Problemspage from './pages/ProblemsPage';
 import DashboardPage from './pages/DashboardPage';
 
 import { Toaster } from 'react-hot-toast';
