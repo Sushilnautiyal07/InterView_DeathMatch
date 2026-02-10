@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/Sushilnautiyal07/InterView_DeathMatch/issues"
   },
-  "homepage": "https://github.com/Sushilnautiyal07/InterView_DeathMatch#readme"
+  "homepage": "https://github.com/Sushilnautiyal07/InterView_DeathMatch#readme",
+  "dependencies": {
+    "axios": "^1.12.2"
+  }
 }
