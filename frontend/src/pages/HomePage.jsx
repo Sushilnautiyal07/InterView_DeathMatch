@@ -54,7 +54,7 @@ function HomePage() {
             </div>
 
             <h1 className="text-5xl lg:text-7xl font-black leading-tight">
-              <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent ">
                 Code Together,
               </span>
               <br />
@@ -135,12 +135,12 @@ function HomePage() {
         </div>
 
         {/* FEATURES GRID */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 ">
           {/* Feature 1 */}
-          <div className="card bg-base-100 shadow-xl">
+          <div className="card bg-base-100 shadow-xl hover:scale-105 transition-transform duration-500">
             <div className="card-body items-center text-center">
               <div className="size-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
-                <VideoIcon className="size-8 text-primary" />
+                <VideoIcon className="size-8 text-primary " />
               </div>
               <h3 className="card-title">HD Video Call</h3>
               <p className="text-base-content/70">
@@ -150,7 +150,7 @@ function HomePage() {
           </div>
 
           {/* Feature 2 */}
-          <div className="card bg-base-100 shadow-xl">
+          <div className="card bg-base-100 shadow-xl hover:scale-105 transition-transform duration-500">
             <div className="card-body items-center text-center">
               <div className="size-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
                 <Code2Icon className="size-8 text-primary" />
@@ -163,7 +163,7 @@ function HomePage() {
           </div>
 
           {/* Feature 3 */}
-          <div className="card bg-base-100 shadow-xl">
+          <div className="card bg-base-100 shadow-xl hover:scale-105 transition-transform duration-500">
             <div className="card-body items-center text-center">
               <div className="size-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
                 <UsersIcon className="size-8 text-primary" />
