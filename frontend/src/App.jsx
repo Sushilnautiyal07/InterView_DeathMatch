@@ -4,6 +4,7 @@ import { Navigate, Routes, Route } from 'react-router';
 import HomePage from './pages/HomePage';
 import Problemspage from './pages/ProblemsPage';
 import DashboardPage from './pages/DashboardPage';
+import Problempage from './pages/ProblemPage';
 
 import { Toaster } from 'react-hot-toast';
 
@@ -30,6 +31,11 @@ function App() {
         <Route
           path="/problems"
           element={isSignedIn ? <Problemspage /> : <Navigate to="/" />}
+        />
+
+        <Route
+          path="/problem/:id"
+          element={isSignedIn ? <Problempage /> : <Navigate to="/" />}
         />
 
       </Routes>
