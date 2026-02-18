@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Sushilnautiyal07/InterView_DeathMatch#readme",
   "dependencies": {
+    "@monaco-editor/react": "^4.7.0",
     "axios": "^1.12.2"
   }
 }

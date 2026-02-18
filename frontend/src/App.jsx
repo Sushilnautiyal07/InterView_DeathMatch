@@ -1,48 +1,49 @@
-import { useUser } from '@clerk/clerk-react';
-import { Navigate, Routes, Route } from 'react-router';
+  import { useUser } from '@clerk/clerk-react';
+  import { Navigate, Routes, Route } from 'react-router';
 
-import HomePage from './pages/HomePage';
-import Problemspage from './pages/ProblemsPage';
-import DashboardPage from './pages/DashboardPage';
-import Problempage from './pages/ProblemPage';
+  import HomePage from './pages/HomePage';
+  import Problemspage from './pages/ProblemsPage';
+  import DashboardPage from './pages/DashboardPage';
+  import Problempage from './pages/ProblemPage';
 
-import { Toaster } from 'react-hot-toast';
 
-function App() {
+  import { Toaster } from 'react-hot-toast';
 
-  const { isSignedIn, isLoaded } = useUser();
+  function App() {
 
-  if (!isLoaded) return null;
+    const { isSignedIn, isLoaded } = useUser();
 
-  return (
-    <>
-      <Routes>
+    if (!isLoaded) return null;
 
-        <Route
-          path="/"
-          element={!isSignedIn ? <HomePage /> : <Navigate to="/dashboard" />}
-        />
+    return (
+      <>
+        <Routes>
 
-        <Route
-          path="/dashboard"
-          element={isSignedIn ? <DashboardPage /> : <Navigate to="/" />}
-        />
+          <Route
+            path="/"
+            element={!isSignedIn ? <HomePage /> : <Navigate to="/dashboard" />}
+          />
 
-        <Route
-          path="/problems"
-          element={isSignedIn ? <Problemspage /> : <Navigate to="/" />}
-        />
+          <Route
+            path="/dashboard"
+            element={isSignedIn ? <DashboardPage /> : <Navigate to="/" />}
+          />
 
-        <Route
-          path="/problem/:id"
-          element={isSignedIn ? <Problempage /> : <Navigate to="/" />}
-        />
+          <Route
+            path="/problems"
+            element={isSignedIn ? <Problemspage /> : <Navigate to="/" />}
+          />
 
-      </Routes>
+          <Route
+            path="/problem/:id"
+            element={isSignedIn ? <Problempage /> : <Navigate to="/" />}
+          />
 
-      <Toaster toastOptions={{ duration: 3000 }} />
-    </>
-  );
-}
+        </Routes>
 
-export default App;
+        <Toaster toastOptions={{ duration: 3000 }} />
+      </>
+    );
+  }
+
+  export default App;
