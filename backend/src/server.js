@@ -24,6 +24,26 @@ app.use(clerkMiddleware());
 app.use("/api/inngest", serve({client: inngest, functions}));
 app.use("/api/chat", chatRoutes);
 
+// CODE RUN ROUTE (piston proxy)
+app.post("/api/run", async (req, res) => {
+  try {
+    const response = await fetch("https://emkc.org/api/v2/piston/execute", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(req.body),
+    });
+
+    const data = await response.json();
+    res.json(data);
+  } catch (error) {
+    console.log("Piston error:", error);
+    res.status(500).json({ error: "Code execution failed" });
+  }
+});
+
+
 
 app.get('/health', (req, res) => {
   res.status(200).json({ msg: 'api is running' });
