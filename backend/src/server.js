@@ -38,7 +38,7 @@ app.post("/api/run", async (req, res) => {
 
     // submit code
     const submit = await fetch(
-      "https://judge0-ce.p.sulu.sh/submissions?base64_encoded=false",
+      "https://ce.judge0.com/submissions?base64_encoded=false",
       {
         method: "POST",
         headers: {
@@ -55,12 +55,12 @@ app.post("/api/run", async (req, res) => {
     const submitData = await submit.json();
     const token = submitData.token;
 
-    // wait 2 sec
-    await new Promise(r => setTimeout(r, 2000));
+    // wait compile
+    await new Promise(r => setTimeout(r, 2500));
 
     // get result
     const result = await fetch(
-      `https://judge0-ce.p.sulu.sh/submissions/${token}?base64_encoded=false`
+      `https://ce.judge0.com/submissions/${token}?base64_encoded=false`
     );
 
     const resultData = await result.json();
