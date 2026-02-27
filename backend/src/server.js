@@ -27,19 +27,54 @@ app.use("/api/chat", chatRoutes);
 // CODE RUN ROUTE (piston proxy)
 app.post("/api/run", async (req, res) => {
   try {
-    const response = await fetch("https://emkc.org/api/v2/piston/execute", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const { language, files } = req.body;
+    const code = files?.[0]?.content;
+
+    const languageMap = {
+      javascript: 63,
+      python: 71,
+      java: 62,
+    };
+
+    // submit code
+    const submit = await fetch(
+      "https://judge0-ce.p.sulu.sh/submissions?base64_encoded=false",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          source_code: code,
+          language_id: languageMap[language],
+          stdin: "",
+        }),
+      }
+    );
+
+    const submitData = await submit.json();
+    const token = submitData.token;
+
+    // wait 2 sec
+    await new Promise(r => setTimeout(r, 2000));
+
+    // get result
+    const result = await fetch(
+      `https://judge0-ce.p.sulu.sh/submissions/${token}?base64_encoded=false`
+    );
+
+    const resultData = await result.json();
+
+    res.json({
+      run: {
+        stdout: resultData.stdout,
+        stderr: resultData.stderr,
       },
-      body: JSON.stringify(req.body),
     });
 
-    const data = await response.json();
-    res.json(data);
-  } catch (error) {
-    console.log("Piston error:", error);
-    res.status(500).json({ error: "Code execution failed" });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "Execution failed" });
   }
 });
 
