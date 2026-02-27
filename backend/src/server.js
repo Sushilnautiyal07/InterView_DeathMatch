@@ -30,9 +30,20 @@ app.post("/api/run", async (req, res) => {
     const { language, files } = req.body;
     let code = files?.[0]?.content;
 
-    // 🔥 Java class name auto-fix
     if (language === "java") {
+      // remove any public class name
       code = code.replace(/public class\s+\w+/, "public class Main");
+
+      // agar class hi nahi likhi user ne
+      if (!code.includes("public class")) {
+        code = `
+public class Main {
+    public static void main(String[] args) {
+        ${code}
+    }
+}
+`;
+      }
     }
 
     const languageMap = {
