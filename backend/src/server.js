@@ -28,13 +28,19 @@ app.use("/api/chat", chatRoutes);
 app.post("/api/run", async (req, res) => {
   try {
     const { language, files } = req.body;
-    let code = files?.[0]?.content;
 
+    if (!files || !files[0]?.content) {
+      return res.status(400).json({ error: "No code provided" });
+    }
+
+    let code = files[0].content;
+
+    // 🔥 Java special handling
     if (language === "java") {
-      // remove any public class name
+      // Rename any public class to Main
       code = code.replace(/public class\s+\w+/, "public class Main");
 
-      // agar class hi nahi likhi user ne
+      // If no class provided, wrap code inside Main
       if (!code.includes("public class")) {
         code = `
 public class Main {
@@ -52,8 +58,14 @@ public class Main {
       java: 62,
     };
 
-    // submit code
-    const submit = await fetch(
+    const languageId = languageMap[language];
+
+    if (!languageId) {
+      return res.status(400).json({ error: "Unsupported language" });
+    }
+
+    // 🔥 Submit code to Judge0
+    const submitResponse = await fetch(
       "https://ce.judge0.com/submissions?base64_encoded=false",
       {
         method: "POST",
@@ -62,24 +74,36 @@ public class Main {
         },
         body: JSON.stringify({
           source_code: code,
-          language_id: languageMap[language],
+          language_id: languageId,
           stdin: "",
         }),
       }
     );
 
-    const submitData = await submit.json();
+    const submitData = await submitResponse.json();
     const token = submitData.token;
 
-    // wait compile
-    await new Promise(r => setTimeout(r, 2500));
+    if (!token) {
+      return res.status(500).json({ error: "Submission failed" });
+    }
 
-    // get result
-    const result = await fetch(
-      `https://ce.judge0.com/submissions/${token}?base64_encoded=false`
-    );
+    let resultData;
 
-    const resultData = await result.json();
+    // 🔥 Poll until execution finishes
+    while (true) {
+      const resultResponse = await fetch(
+        `https://ce.judge0.com/submissions/${token}?base64_encoded=false`
+      );
+
+      resultData = await resultResponse.json();
+
+      if (resultData.status?.id > 2) break; 
+      // 1 = In Queue
+      // 2 = Processing
+      // >2 = Completed
+
+      await new Promise(r => setTimeout(r, 1000));
+    }
 
     res.json({
       run: {
@@ -89,11 +113,10 @@ public class Main {
     });
 
   } catch (err) {
-    console.log(err);
+    console.error("Compiler Error:", err);
     res.status(500).json({ error: "Execution failed" });
   }
 });
-
 
 
 app.get('/health', (req, res) => {
