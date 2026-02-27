@@ -24,7 +24,7 @@ export async function executeCode(language, code) {
       };
     }
 
-    const response = await fetch(`${PISTON_API}/execute`, {
+    const response = await fetch(`${PISTON_API}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
