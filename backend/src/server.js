@@ -27,7 +27,7 @@ app.use("/api/chat", chatRoutes);
 // CODE RUN ROUTE (piston proxy)
 app.post("/api/run", async (req, res) => {
   try {
-    const response = await fetch("https://emkc.org/api/v2/piston/excecute", {
+    const response = await fetch("https://emkc.org/api/v2/piston/execute", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
