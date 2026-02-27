@@ -49,21 +49,32 @@ export async function executeCode(language, code) {
     }
 
     const data = await response.json();
+    console.log("PISTON RESPONSE:", data); 
 
-    const output = data.run.output || "";
+   
+    if (!data.run) {
+      return {
+        success: false,
+        error: "Execution failed (no run data returned)",
+      };
+    }
+
+    const stdout = data.run.stdout || "";
     const stderr = data.run.stderr || "";
+
 
     if (stderr) {
       return {
         success: false,
-        output: output,
+        output: stdout,
         error: stderr,
       };
     }
 
+    // success case
     return {
       success: true,
-      output: output || "No output",
+      output: stdout || "No output",
     };
   } catch (error) {
     return {
