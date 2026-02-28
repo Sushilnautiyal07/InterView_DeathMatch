@@ -21,6 +21,8 @@
   "homepage": "https://github.com/Sushilnautiyal07/InterView_DeathMatch#readme",
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",
-    "axios": "^1.12.2"
+    "axios": "^1.12.2",
+    "date-fns": "^4.1.0",
+    "react-resizable-panels": "^4.6.5"
   }
 }
