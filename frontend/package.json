@@ -15,7 +15,7 @@
     "@tailwindcss/vite": "^4.1.18",
     "@tanstack/react-query": "^5.90.5",
     "canvas-confetti": "^1.9.3",
-    "data-fns": "^1.1.0",
+    "date-fns": "^4.1.0",
     "interview-battleground": "file:..",
     "lucide-react": "^0.563.0",
     "react": "^19.1.1",
