@@ -1,6 +1,7 @@
 // Piston API is a service which is used for the code excecution
 
-const PISTON_API = "https://interview-deathmatch.onrender.com/api/run";
+// const PISTON_API = "https://interview-deathmatch.onrender.com/api/run";
+const PISTON_API = `${import.meta.env.VITE_BACKEND_URL}/api/run`;
 
 const LANGUAGE_VERSIONS = {
   javascript: { language: "javascript", version: "18.15.0" },
