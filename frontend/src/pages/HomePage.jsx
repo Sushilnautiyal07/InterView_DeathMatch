@@ -211,48 +211,88 @@ function HomePage() {
             ))}
           </div>
         </section>
+{/* DEVELOPER / STUDENT AUDIENCE SECTION */}
 
-        {/* DEVELOPER / STUDENT AUDIENCE SECTION */}
         <section className="max-w-7xl mx-auto px-6 py-24 border-t border-white/5">
+
           <div className="grid lg:grid-cols-3 gap-8">
+
             <div className="lg:col-span-1 flex flex-col justify-center">
+
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Built for whoever is at the keyboard.</h2>
-              <p className="text-slate-400 mb-8 leading-relaxed">Whether you are a hyper-growth startup hiring top talent, or a PanelGroup of friends grinding LeetCode, our infrastructure scales to your needs.</p>
+
+              <p className="text-slate-400 mb-8 leading-relaxed">Whether you are a hyper-growth startup hiring top talent, or a group of friends grinding LeetCode, our infrastructure scales to your needs.</p>
+
               <button className="flex items-center gap-2 text-indigo-400 hover:text-indigo-300 font-medium transition-colors w-fit">
+
                 Explore Use Cases <ArrowRightIcon className="size-4" />
+
               </button>
+
             </div>
-            
+
+           
+
             <div className="lg:col-span-2 grid sm:grid-cols-2 gap-6">
-              <div className="p-8 rounded-3xl bg-gradient-to-b from-white/[0.05] to-transparent border border-white/5 relative overflow-hidden PanelGroup">
-                <div className="absolute top-0 right-0 p-6 opacity-20 PanelGroup-hover:opacity-100 PanelGroup-hover:scale-110 transition-all duration-500">
+
+              <div className="p-8 rounded-3xl bg-gradient-to-b from-white/[0.05] to-transparent border border-white/5 relative overflow-hidden group">
+
+                <div className="absolute top-0 right-0 p-6 opacity-20 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+
                   <GlobeIcon className="size-24 text-indigo-500" />
+
                 </div>
+
                 <div className="relative z-10">
+
                   <h4 className="text-xl font-semibold text-white mb-2">For Students</h4>
+
                   <ul className="space-y-3 mt-6">
+
                     <li className="flex items-center gap-3 text-slate-300 text-sm"><CheckCircle2Icon className="size-4 text-indigo-400" /> Mock interviews with peers</li>
+
                     <li className="flex items-center gap-3 text-slate-300 text-sm"><CheckCircle2Icon className="size-4 text-indigo-400" /> Real-time DSA practice</li>
+
                     <li className="flex items-center gap-3 text-slate-300 text-sm"><CheckCircle2Icon className="size-4 text-indigo-400" /> Placement preparation</li>
+
                   </ul>
+
                 </div>
+
               </div>
 
-              <div className="p-8 rounded-3xl bg-gradient-to-b from-white/[0.05] to-transparent border border-white/5 relative overflow-hidden PanelGroup">
-                <div className="absolute top-0 right-0 p-6 opacity-20 PanelGroup-hover:opacity-100 PanelGroup-hover:scale-110 transition-all duration-500">
+
+
+              <div className="p-8 rounded-3xl bg-gradient-to-b from-white/[0.05] to-transparent border border-white/5 relative overflow-hidden group">
+
+                <div className="absolute top-0 right-0 p-6 opacity-20 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+
                   <TerminalIcon className="size-24 text-fuchsia-500" />
+
                 </div>
+
                 <div className="relative z-10">
+
                   <h4 className="text-xl font-semibold text-white mb-2">For Recruiters</h4>
+
                   <ul className="space-y-3 mt-6">
+
                     <li className="flex items-center gap-3 text-slate-300 text-sm"><CheckCircle2Icon className="size-4 text-fuchsia-400" /> Standardized environments</li>
+
                     <li className="flex items-center gap-3 text-slate-300 text-sm"><CheckCircle2Icon className="size-4 text-fuchsia-400" /> Code playback & history</li>
+
                     <li className="flex items-center gap-3 text-slate-300 text-sm"><CheckCircle2Icon className="size-4 text-fuchsia-400" /> Zero setup required</li>
+
                   </ul>
+
                 </div>
+
               </div>
+
             </div>
+
           </div>
+
         </section>
 
         {/* ANIMATED: MEET THE MAKERS SECTION */}
