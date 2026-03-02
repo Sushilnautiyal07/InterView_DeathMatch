@@ -126,12 +126,10 @@ app.get('/health', (req, res) => {
   res.status(200).json({ msg: 'api is running' });
 });
 
-if (ENV.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../frontend/dist')));
-  app.get('/{*any}', (req, res) => {
-    res.redirect(ENV.CLIENT_URL);
-  });
-}
+// Catch-all for undefined API routes using a standard Express middleware
+app.use((req, res) => {
+  res.status(404).json({ error: `Route not found: ${req.method} ${req.originalUrl}` });
+});
 
 
 
