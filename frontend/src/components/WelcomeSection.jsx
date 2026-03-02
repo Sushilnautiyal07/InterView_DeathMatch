@@ -26,11 +26,11 @@ function WelcomeSection({ onCreateSession }) {
         {/* RIGHT: Action Button */}
         <button
           onClick={onCreateSession}
-          className="group w-full md:w-auto px-8 py-4 bg-gradient-to-r from-indigo-600 to-fuchsia-600 rounded-full text-white font-semibold text-lg shadow-[0_0_30px_rgba(99,102,241,0.3)] hover:shadow-[0_0_45px_rgba(99,102,241,0.5)] hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-3 shrink-0"
+          className="PanelGroup w-full md:w-auto px-8 py-4 bg-gradient-to-r from-indigo-600 to-fuchsia-600 rounded-full text-white font-semibold text-lg shadow-[0_0_30px_rgba(99,102,241,0.3)] hover:shadow-[0_0_45px_rgba(99,102,241,0.5)] hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-3 shrink-0"
         >
           <ZapIcon className="w-5 h-5" />
           <span>Create Session</span>
-          <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          <ArrowRightIcon className="w-5 h-5 PanelGroup-hover:translate-x-1 transition-transform" />
         </button>
         
       </div>

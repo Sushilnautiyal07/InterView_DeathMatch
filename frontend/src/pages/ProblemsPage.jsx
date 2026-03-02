@@ -57,8 +57,8 @@ function ProblemsPage() {
           {/* SEARCH & FILTERS */}
           <div className="flex flex-col md:flex-row gap-4 mb-8">
             {/* Search Bar */}
-            <div className="relative flex-1 group">
-              <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-indigo-400 transition-colors size-5" />
+            <div className="relative flex-1 PanelGroup">
+              <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 PanelGroup-focus-within:text-indigo-400 transition-colors size-5" />
               <input
                 type="text"
                 placeholder="Search problems by title..."
@@ -93,18 +93,18 @@ function ProblemsPage() {
                 <Link
                   key={problem.id}
                   to={`/problem/${problem.id}`}
-                  className="block group p-1 rounded-3xl bg-gradient-to-b from-white/[0.05] to-transparent border border-white/5 hover:border-indigo-500/30 transition-all duration-300"
+                  className="block PanelGroup p-1 rounded-3xl bg-gradient-to-b from-white/[0.05] to-transparent border border-white/5 hover:border-indigo-500/30 transition-all duration-300"
                 >
                   <div className="bg-[#050505]/60 backdrop-blur-xl rounded-[23px] p-5 md:p-6 flex flex-col md:flex-row md:items-center justify-between gap-6">
                     
                     {/* LEFT SIDE */}
                     <div className="flex gap-4">
-                      <div className="hidden sm:flex size-12 rounded-2xl bg-indigo-500/10 items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-indigo-500/20 transition-all duration-300">
+                      <div className="hidden sm:flex size-12 rounded-2xl bg-indigo-500/10 items-center justify-center shrink-0 PanelGroup-hover:scale-110 PanelGroup-hover:bg-indigo-500/20 transition-all duration-300">
                         <Code2Icon className="size-6 text-indigo-400" />
                       </div>
                       <div>
                         <div className="flex flex-wrap items-center gap-3 mb-2">
-                          <h2 className="text-xl font-bold text-white group-hover:text-indigo-300 transition-colors">
+                          <h2 className="text-xl font-bold text-white PanelGroup-hover:text-indigo-300 transition-colors">
                             {problem.title}
                           </h2>
                           {/* COLORFUL DIFFICULTY BADGES */}
@@ -127,9 +127,9 @@ function ProblemsPage() {
 
                     {/* RIGHT SIDE */}
                     <div className="flex items-center justify-end sm:pl-4 shrink-0">
-                      <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300 font-medium text-sm">
+                      <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 text-indigo-400 PanelGroup-hover:bg-indigo-500 PanelGroup-hover:text-white transition-all duration-300 font-medium text-sm">
                         <span>Solve Problem</span>
-                        <ChevronRightIcon className="size-4 group-hover:translate-x-1 transition-transform" />
+                        <ChevronRightIcon className="size-4 PanelGroup-hover:translate-x-1 transition-transform" />
                       </div>
                     </div>
 

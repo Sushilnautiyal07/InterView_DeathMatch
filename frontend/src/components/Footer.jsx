@@ -13,10 +13,10 @@ function Footer() {
           
           {/* Brand Column */}
           <div className="md:col-span-1">
-            <Link to="/" className="flex items-center gap-3 group mb-4 w-fit">
-              <div className="size-8 rounded-lg bg-gradient-to-tr from-indigo-500 to-fuchsia-500 p-[1px] group-hover:shadow-[0_0_15px_rgba(99,102,241,0.4)] transition-all duration-300">
+            <Link to="/" className="flex items-center gap-3 PanelGroup mb-4 w-fit">
+              <div className="size-8 rounded-lg bg-gradient-to-tr from-indigo-500 to-fuchsia-500 p-[1px] PanelGroup-hover:shadow-[0_0_15px_rgba(99,102,241,0.4)] transition-all duration-300">
                 <div className="w-full h-full bg-[#050505] rounded-lg flex items-center justify-center">
-                  <TerminalIcon className="size-4 text-indigo-400 group-hover:text-white transition-colors" />
+                  <TerminalIcon className="size-4 text-indigo-400 PanelGroup-hover:text-white transition-colors" />
                 </div>
               </div>
               <span className="font-extrabold text-lg bg-gradient-to-r from-indigo-400 via-fuchsia-400 to-indigo-400 bg-clip-text text-transparent tracking-wide">

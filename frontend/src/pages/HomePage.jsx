@@ -84,10 +84,10 @@ function HomePage() {
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           
           {/* LOGO */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="size-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-fuchsia-500 p-[1px] group-hover:shadow-[0_0_20px_rgba(99,102,241,0.4)] transition-all duration-300">
+          <Link to="/" className="flex items-center gap-3 PanelGroup">
+            <div className="size-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-fuchsia-500 p-[1px] PanelGroup-hover:shadow-[0_0_20px_rgba(99,102,241,0.4)] transition-all duration-300">
               <div className="w-full h-full bg-[#050505] rounded-xl flex items-center justify-center">
-                <SparklesIcon className="size-5 text-indigo-400 group-hover:text-white transition-colors" />
+                <SparklesIcon className="size-5 text-indigo-400 PanelGroup-hover:text-white transition-colors" />
               </div>
             </div>
             <div className="flex flex-col">
@@ -105,9 +105,9 @@ function HomePage() {
               </button>
             </SignInButton>
             <SignInButton mode="modal" forceRedirectUrl="/dashboard">
-              <button className="group relative px-6 py-2.5 bg-white text-black rounded-full font-semibold text-sm hover:scale-105 transition-all duration-300 flex items-center gap-2">
+              <button className="PanelGroup relative px-6 py-2.5 bg-white text-black rounded-full font-semibold text-sm hover:scale-105 transition-all duration-300 flex items-center gap-2">
                 <span>Get Started</span>
-                <ArrowRightIcon className="size-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRightIcon className="size-4 PanelGroup-hover:translate-x-1 transition-transform" />
               </button>
             </SignInButton>
           </div>
@@ -161,24 +161,24 @@ function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="group p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] hover:border-white/10 transition-all duration-300">
-              <div className="size-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <div className="PanelGroup p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] hover:border-white/10 transition-all duration-300">
+              <div className="size-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center mb-6 PanelGroup-hover:scale-110 transition-transform">
                 <VideoIcon className="size-6 text-indigo-400" />
               </div>
               <h3 className="text-xl font-semibold text-white mb-3">Ultra-Low Latency Video</h3>
               <p className="text-slate-400 leading-relaxed">WebRTC-powered crystal clear video calling designed specifically to not drop frames while compiling heavy code.</p>
             </div>
 
-            <div className="group p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] hover:border-white/10 transition-all duration-300">
-              <div className="size-12 rounded-2xl bg-fuchsia-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <div className="PanelGroup p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] hover:border-white/10 transition-all duration-300">
+              <div className="size-12 rounded-2xl bg-fuchsia-500/10 flex items-center justify-center mb-6 PanelGroup-hover:scale-110 transition-transform">
                 <Code2Icon className="size-6 text-fuchsia-400" />
               </div>
               <h3 className="text-xl font-semibold text-white mb-3">Multi-Language IDE</h3>
               <p className="text-slate-400 leading-relaxed">A full-fledged collaborative code editor with syntax highlighting, auto-complete, and support for 40+ languages.</p>
             </div>
 
-            <div className="group p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] hover:border-white/10 transition-all duration-300">
-              <div className="size-12 rounded-2xl bg-cyan-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <div className="PanelGroup p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] hover:border-white/10 transition-all duration-300">
+              <div className="size-12 rounded-2xl bg-cyan-500/10 flex items-center justify-center mb-6 PanelGroup-hover:scale-110 transition-transform">
                 <CpuIcon className="size-6 text-cyan-400" />
               </div>
               <h3 className="text-xl font-semibold text-white mb-3">Live Execution Engine</h3>
@@ -217,15 +217,15 @@ function HomePage() {
           <div className="grid lg:grid-cols-3 gap-8">
             <div className="lg:col-span-1 flex flex-col justify-center">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Built for whoever is at the keyboard.</h2>
-              <p className="text-slate-400 mb-8 leading-relaxed">Whether you are a hyper-growth startup hiring top talent, or a group of friends grinding LeetCode, our infrastructure scales to your needs.</p>
+              <p className="text-slate-400 mb-8 leading-relaxed">Whether you are a hyper-growth startup hiring top talent, or a PanelGroup of friends grinding LeetCode, our infrastructure scales to your needs.</p>
               <button className="flex items-center gap-2 text-indigo-400 hover:text-indigo-300 font-medium transition-colors w-fit">
                 Explore Use Cases <ArrowRightIcon className="size-4" />
               </button>
             </div>
             
             <div className="lg:col-span-2 grid sm:grid-cols-2 gap-6">
-              <div className="p-8 rounded-3xl bg-gradient-to-b from-white/[0.05] to-transparent border border-white/5 relative overflow-hidden group">
-                <div className="absolute top-0 right-0 p-6 opacity-20 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+              <div className="p-8 rounded-3xl bg-gradient-to-b from-white/[0.05] to-transparent border border-white/5 relative overflow-hidden PanelGroup">
+                <div className="absolute top-0 right-0 p-6 opacity-20 PanelGroup-hover:opacity-100 PanelGroup-hover:scale-110 transition-all duration-500">
                   <GlobeIcon className="size-24 text-indigo-500" />
                 </div>
                 <div className="relative z-10">
@@ -238,8 +238,8 @@ function HomePage() {
                 </div>
               </div>
 
-              <div className="p-8 rounded-3xl bg-gradient-to-b from-white/[0.05] to-transparent border border-white/5 relative overflow-hidden group">
-                <div className="absolute top-0 right-0 p-6 opacity-20 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+              <div className="p-8 rounded-3xl bg-gradient-to-b from-white/[0.05] to-transparent border border-white/5 relative overflow-hidden PanelGroup">
+                <div className="absolute top-0 right-0 p-6 opacity-20 PanelGroup-hover:opacity-100 PanelGroup-hover:scale-110 transition-all duration-500">
                   <TerminalIcon className="size-24 text-fuchsia-500" />
                 </div>
                 <div className="relative z-10">
@@ -275,24 +275,24 @@ function HomePage() {
               {infiniteMakers.map((member, idx) => (
                 <div 
                   key={idx} 
-                  className="group relative p-1 rounded-3xl bg-gradient-to-b from-white/[0.05] to-transparent border border-white/5 hover:border-indigo-500/50 hover:scale-105 hover:-translate-y-2 transition-all duration-300 ease-out hover:shadow-[0_10px_40px_rgba(99,102,241,0.2)] hover:z-20 w-[280px] shrink-0 cursor-default"
+                  className="PanelGroup relative p-1 rounded-3xl bg-gradient-to-b from-white/[0.05] to-transparent border border-white/5 hover:border-indigo-500/50 hover:scale-105 hover:-translate-y-2 transition-all duration-300 ease-out hover:shadow-[0_10px_40px_rgba(99,102,241,0.2)] hover:z-20 w-[280px] shrink-0 cursor-default"
                 >
                   <div className="bg-[#050505]/80 backdrop-blur-xl rounded-[23px] p-8 text-center h-full flex flex-col items-center">
                     <div className="relative mb-6">
-                      <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-fuchsia-500 rounded-full blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-500" />
+                      <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-fuchsia-500 rounded-full blur-md opacity-0 PanelGroup-hover:opacity-60 transition-opacity duration-500" />
                       <img 
                         src={member.image} 
                         alt={member.name}
-                        className="w-24 h-24 rounded-full relative z-10 object-cover border-2 border-white/10 group-hover:border-transparent transition-colors duration-300 bg-[#0a0a0a]"
+                        className="w-24 h-24 rounded-full relative z-10 object-cover border-2 border-white/10 PanelGroup-hover:border-transparent transition-colors duration-300 bg-[#0a0a0a]"
                       />
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-1 group-hover:text-indigo-300 transition-colors">
+                    <h3 className="text-xl font-bold text-white mb-1 PanelGroup-hover:text-indigo-300 transition-colors">
                       {member.name}
                     </h3>
                     <p className={`text-sm font-mono mb-6 ${member.role === 'ML Engineer' ? 'text-fuchsia-400/80' : 'text-indigo-400/80'}`}>
                       {member.role}
                     </p>
-                    <div className="flex items-center gap-4 opacity-50 group-hover:opacity-100 group-hover:-translate-y-1 transition-all duration-300 mt-auto">
+                    <div className="flex items-center gap-4 opacity-50 PanelGroup-hover:opacity-100 PanelGroup-hover:-translate-y-1 transition-all duration-300 mt-auto">
                       <a href={member.github} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-white/5 hover:bg-indigo-500 hover:text-white text-slate-300 transition-colors cursor-pointer">
                         <GithubIcon className="size-5" />
                       </a>
