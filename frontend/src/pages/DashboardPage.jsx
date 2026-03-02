@@ -10,6 +10,7 @@ import StatsCards from "../components/StatsCards";
 import ActiveSessions from "../components/ActiveSessions";
 import RecentSessions from "../components/RecentSessions";
 import CreateSessionModal from "../components/CreateSessionModal";
+import Footer from "../components/Footer";
 
 function DashboardPage() {
   const navigate = useNavigate();
@@ -110,8 +111,11 @@ function DashboardPage() {
               </div>
             </div>
           </main>
+            <Footer />
         </div>
+      
       </div>
+      
 
       <CreateSessionModal
         isOpen={showCreateModal}
@@ -122,6 +126,7 @@ function DashboardPage() {
         isCreating={createSessionMutation.isPending}
       />
     </>
+    
   );
 }
 
