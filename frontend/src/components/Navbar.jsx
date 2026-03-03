@@ -1,77 +1,71 @@
 import { Link, useLocation } from "react-router";
-import { BookOpenIcon, LayoutDashboardIcon, SparklesIcon } from "lucide-react";
+import { BookOpenIcon, LayoutDashboardIcon, Terminal } from "lucide-react";
 import { UserButton } from "@clerk/clerk-react";
 
 function Navbar() {
   const location = useLocation();
-
-  console.log(location);
-
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className="bg-base-100/80 backdrop-blur-md border-b border-primary/20 sticky top-0 z-50 shadow-lg">
-      <div className="max-w-7xl mx-auto p-4 flex items-center justify-between">
-        {/* LOGO */}
-        <Link
-          to="/"
-          className="PanelGroup flex items-center gap-3 hover:scale-105 transition-transform duration-200"
-        >
-          <div className="size-10 rounded-xl bg-gradient-to-r from-primary via-secondary to-accent flex items-center justify-center shadow-lg ">
-            <SparklesIcon className="size-6 text-white" />
+    <nav className="absolute top-0 left-0 right-0 z-[100] bg-black border-b border-white/5 h-16">
+      <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-between">
+        
+        {/* LEFT: LOGO SECTION (Exact as Image) */}
+        <Link to="/" className="flex items-center gap-3 transition-opacity hover:opacity-90">
+          {/* Logo Box with Purple/Pink Border */}
+          <div className="relative p-[1.5px] rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 shadow-lg shadow-purple-500/10">
+            <div className="bg-black rounded-[10px] size-9 flex items-center justify-center">
+              <Terminal className="size-5 text-white" strokeWidth={2.5} />
+            </div>
           </div>
 
-          <div className="flex flex-col">
-            <span className="font-black text-xl bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent font-mono tracking-wider">
-              ProctoHire Alpha
-            </span>
-            <span className="text-xs text-base-content/60 font-medium -mt-1">Code Together-Learn Together</span>
-          </div>
+          {/* Logo Text - Pure White & Bold */}
+          <span className="text-white font-bold text-xl tracking-tight">
+            ProctoHire
+          </span>
         </Link>
 
-        <div className="flex items-center gap-1">
-          {/* PROBLEMS PAGE LINK */}
+        {/* RIGHT: NAVIGATION LINKS (Button styling preserved) */}
+        <div className="flex items-center gap-2">
           <Link
-            to={"/problems"}
-            className={`px-4 py-2.5 rounded-lg transition-all duration-200 
+            to="/problems"
+            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 flex items-center gap-2
               ${
                 isActive("/problems")
-                  ? "bg-primary text-primary-content"
-                  : "hover:bg-base-200 text-base-content/70 hover:text-base-content"
-              }
-              
-              `}
+                  ? "bg-white/10 text-white border border-white/10"
+                  : "text-slate-400 hover:text-white hover:bg-white/5 border border-transparent"
+              }`}
           >
-            <div className="flex items-center gap-x-2.5">
-              <BookOpenIcon className="size-4" />
-              <span className="font-medium hidden sm:inline">Problems</span>
-            </div>
+            <BookOpenIcon className="size-4" />
+            <span className="hidden sm:inline">Problems</span>
           </Link>
 
-          {/* DASHBORD PAGE LINK */}
           <Link
-            to={"/dashboard"}
-            className={`px-4 py-2.5 rounded-lg transition-all duration-200 
+            to="/dashboard"
+            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 flex items-center gap-2
               ${
                 isActive("/dashboard")
-                  ? "bg-primary text-primary-content"
-                  : "hover:bg-base-200 text-base-content/70 hover:text-base-content"
-              }
-              
-              `}
+                  ? "bg-white/10 text-white border border-white/10"
+                  : "text-slate-400 hover:text-white hover:bg-white/5 border border-transparent"
+              }`}
           >
-            <div className="flex items-center gap-x-2.5">
-              <LayoutDashboardIcon className="size-4" />
-              <span className="font-medium hidden sm:inline">Dashbord</span>
-            </div>
+            <LayoutDashboardIcon className="size-4" />
+            <span className="hidden sm:inline">Dashboard</span>
           </Link>
 
-          <div className="ml-4 mt-2">
-            <UserButton />
+          <div className="ml-4 pl-4 border-l border-white/10 flex items-center h-8">
+            <UserButton 
+               appearance={{
+                elements: {
+                  avatarBox: "size-8 border border-white/10 hover:border-purple-500/50 transition-all"
+                }
+              }}
+            />
           </div>
         </div>
       </div>
     </nav>
   );
 }
+
 export default Navbar;
