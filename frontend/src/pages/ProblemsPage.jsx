@@ -38,7 +38,7 @@ function ProblemsPage() {
       <div className="relative z-10 flex flex-col min-h-screen">
         <Navbar />
 
-        <main className="flex-1 w-full max-w-6xl mx-auto px-6 pt-12 pb-20">
+        <main className="flex-1 w-full max-w-6xl mx-auto px-6 pt-20 pb-20">
           
           {/* HEADER */}
           <div className="mb-10 text-center md:text-left">
