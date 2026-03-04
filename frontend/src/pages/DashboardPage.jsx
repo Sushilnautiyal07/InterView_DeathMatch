@@ -63,7 +63,7 @@ function DashboardPage() {
 };
 
   const copyRoomDetails = () => {
-    const magicLink = `${window.location.origin}/session/${createdRoomDetails.id}?pwd=${createdRoomDetails.password}`;
+    const magicLink = `${window.location.origin}/session/${createdRoomDetails.id}`;
     const textToCopy = `Join my Interview Room!\nMagic Link: ${magicLink}\n\nOr join manually with Password: ${createdRoomDetails.password}`;
     navigator.clipboard.writeText(textToCopy);
     toast.success("Magic Link Copied to Clipboard!");
