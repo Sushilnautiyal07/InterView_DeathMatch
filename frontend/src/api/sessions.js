@@ -20,8 +20,9 @@ export const sessionApi = {
     return response.data;
   },
 
-  joinSession: async (id) => {
-    const response = await axiosInstance.post(`/sessions/${id}/join`);
+  joinSession: async ({ id, password }) => {
+    // Backend ko body me password bhej rahe hain
+    const response = await axiosInstance.post(`/sessions/${id}/join`, { password });
     return response.data;
   },
   endSession: async (id) => {

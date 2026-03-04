@@ -30,6 +30,10 @@ const SessionSchema=new mongoose.Schema({
         type:String,
         default:""
     },
+    password:{
+        type:String,
+        required:true
+    },
 
 } ,{timestamps:true});
 
