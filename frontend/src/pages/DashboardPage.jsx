@@ -31,27 +31,36 @@ function DashboardPage() {
   const { data: activeSessionsData, isLoading: loadingActiveSessions } = useActiveSessions();
   const { data: recentSessionsData, isLoading: loadingRecentSessions } = useMyRecentSessions();
 
-  const handleCreateRoom = () => {
-    if (!roomConfig.problem || !roomConfig.difficulty) return;
+ const handleCreateRoom = () => {
+  if (!roomConfig.problem || !roomConfig.difficulty) return;
 
-    createSessionMutation.mutate(
-      {
-        problem: roomConfig.problem,
-        difficulty: roomConfig.difficulty.toLowerCase(),
+  createSessionMutation.mutate(
+    {
+      problem: roomConfig.problem,
+      difficulty: roomConfig.difficulty.toLowerCase(),
+    },
+    {
+      onSuccess: (data) => {
+        setShowCreateModal(false);
+     
+        const newSession = data.session;
+        
+      
+        toast.success(`Session Created Successfully!`);
+        
+       
+        setCreatedRoomDetails({
+          id: newSession._id,
+          password: newSession.password
+        });
       },
-      {
-        onSuccess: (data) => {
-          setShowCreateModal(false);
-          const { _id, roomId } = data.session;
-          toast.success(`Session Created! ID: ${roomId}`);
-         setCreatedRoomDetails({
-            id: session._id,
-            password: session.password
-          });
-        },
+      onError: (error) => {
+        console.error("Failed to create room:", error);
+        toast.error("Something went wrong while creating the room.");
       }
-    );
-  };
+    }
+  );
+};
 
   const copyRoomDetails = () => {
     const magicLink = `${window.location.origin}/session/${createdRoomDetails.id}?pwd=${createdRoomDetails.password}`;
